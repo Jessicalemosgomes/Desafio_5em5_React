@@ -7,15 +7,24 @@ import { categories } from './data/categories';
 import { items } from './data/items';
 import { getCurrenteMonth, filterListByMonth } from './helpers/dateFilter';
 import { TableArea } from './components/TableArea';
+import { InfoArea } from './components/InfoArea';
+
 
 const App = () => {
   const [list, setList] = useState(items);
   const [filteredList, setFiltedList] = useState<Item[]>([]);
-  const [currentMoth, setCurrentMoth] = useState(getCurrenteMonth());
+  const [currentMonth, setCurrentMonth] = useState(getCurrenteMonth());
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
 
   useEffect(() => {
-    setFiltedList( filterListByMonth(list, currentMoth));
-  }, [list, currentMoth]);
+    setFiltedList( filterListByMonth(list, currentMonth));
+  }, [list, currentMonth]);
+  
+  const handleMonthChange = (newMonth: string) => {
+    setCurrentMonth(newMonth);
+
+  }
   
   return(
 
@@ -25,6 +34,12 @@ const App = () => {
     </C.Header>
       <C.Body>
         
+        <InfoArea
+        currentMonth={currentMonth}
+        onMonthChange={handleMonthChange}
+        income={income}
+        expense={expense}
+        />
 
         <TableArea list={filteredList}/>
 
