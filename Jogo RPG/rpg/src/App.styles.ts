@@ -1,15 +1,16 @@
-import * as C from './App.styles';
+import styled from "styled-components";
 
-const App = () => {
-   return (
-    <C.Container>
-    <C.Map>
-    
-    
-    </C.Map>
-    </C.Container>
-  );
+export const Container =styled.div`
+background-color: #24282F;
+min-height: 100vh;
+color: #FFF;
 
-}
+`;
 
-export default App;
+export const Map = styled.div`
+  width: 480px;
+  height 480px;
+  background-image: url('/assets/map.png');
+  background-position: left top;
+  background-size: 100%;
+`;

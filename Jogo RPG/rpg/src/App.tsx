@@ -1,7 +1,17 @@
-import styled from "styled-components";
+import * as C from './App.styles';
+import { Character } from './components/Character';
 
-export const Container = styled.div`
-  background-color: #24282F;
-  min-height: 100vh;
-  color: #FFF;
-`;
+const App = () => {
+  return (
+
+    
+    <C.Container>
+      <C.Map>
+        <Character x={6} y={4} />
+      </C.Map>
+    </C.Container>
+
+  );
+}
+
+export default App;
